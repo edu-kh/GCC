@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Moul&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Battambang&family=Moul&display=swap" rel="stylesheet">
+  <title>Sign Up</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+     
+      background: #ccdaeb;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      font-family: "Battambang", system-ui, Arial, sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 16px;
+    }
+
+    .container {
+      background: #c8dcef;
+      max-width: 750px;
+      width: 100%;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      position: relative;
+      
+    }
+
+    .logo {
+      position: absolute;
+      top: 5px;
+      left: 20px;
+      width: 200px;
+      height: auto;
+    }
+   
+
+    h2 {
+      text-align: center;
+      margin-top: 10px;
+      color: #333;
+    }
+
+    form {
+      margin-top: 40px;
+      
+    }
+
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-family: "Battambang", system-ui, Arial, sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 16px;
+    }
+
+    .form-group {
+      flex: 1 1 calc(50% - 10px);
+      margin-bottom: 15px;
+    }
+
+    .form-group-full {
+      flex: 1 1 100%;
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid #dfe9eb;
+      font-family: "Battambang", system-ui, Arial, sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 16px;
+      background-color: #e6eff7;
+    }
+
+    .sex-options {
+      display: flex;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .sex-option {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      border-radius: 6px;
+      background-color: #eaeaea;
+      transition: background 0.3s;
+    }
+
+    .sex-option:hover {
+      background-color: #d0e2ff;
+    }
+
+    .sex-option input[type="checkbox"] {
+      transform: scale(1.2);
+    }
+
+    .button-group {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    button {
+      flex: 1;
+      padding: 12px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      color: white;
+      background: linear-gradient(to bottom, #4f8ef7, #1e60d4);
+      box-shadow: 0 4px #0f3c8c;
+      transition: all 0.15s ease-in-out;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px #0f3c8c;
+    }
+
+    #clearBtn {
+      background: linear-gradient(to bottom, #ccc, #888);
+      box-shadow: 0 4px #555;
+    }
+
+    #clearBtn:hover {
+      box-shadow: 0 6px #333;
+    }
+
+    .message {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    @media (max-width: 600px) {
+      .form-row {
+        flex-direction: column;
+      }
+
+      .logo {
+        position: static;
+        display: block;
+        margin: 0 auto 20px;
+      }
+
+      .button-group {
+        flex-direction: row;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+ 
+  <img src="tumblr_orsz0n4y3E1rsqr5qo3_500.gif" alt="Logo" class="logo" />
+ 
+  <h2>ចុះឈ្មោះរៀនបង្កើតហ្គេម</h2>
+
+  <form id="signupForm">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="name">ឈ្មោះពេញ</label>
+        <input type="text" name="name" id="name" placeholder="គោលនាម និងនាម" required />
+      </div>
+      <div class="form-group">
+        <label>ភេទ </label>
+        <div class="sex-options">
+          <div class="sex-option">
+            <span>ប្រុស</span>
+            <input type="checkbox" name="sex" value="ប្រុស" onclick="onlyOne(this)">
+          </div>
+          <div class="sex-option">
+            <span>ស្រី</span>
+            <input type="checkbox" name="sex" value="ស្រី" onclick="onlyOne(this)">
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="dob">ថ្ងៃខែឆ្នាំកំណើត</label>
+        <input type="date" name="dob" id="dob" required />
+      </div>
+      <div class="form-group">
+        <label for="grade">ថ្នាក់ទី</label>
+        <select name="grade" id="grade" required>
+          <option value="" disabled selected>ជ្រើសរើស</option>
+         
+          <option> 7</option><option> 8</option><option>9</option>
+          <option> 10</option><option> 11</option><option> 12</option>
+        </select>
+      </div>
+    </div>
+
+      <div class="form-row">
+       <div class="form-group">
+        <label for="device">ឧបករណ៍</label>
+        <select name="device" id="device" required>
+          <option value="" disabled selected>ជ្រើសរើស</option>
+         
+          <option> មានកុំព្យូទ័រ</option><option> មាន ipad / tablet </option><option>មិនមាន</option>
+         
+        </select>
+        </div>
+      <div class="form-group">
+        <label for="mail">Email</label>
+        <select name="mail" id="mail" required>
+          <option value="" disabled selected>ជ្រើសរើស</option>
+         
+          <option> ចេះបង្កើត</option><option> មិនចេះ</option>
+         
+        </select>
+      </div>
+      </div>
+
+      <div class="form-row">
+       <div class="form-group">
+        <label for="eng">អង់គ្លេស</label>
+        <select name="eng" id="eng" required>
+          <option value="" disabled selected>ជ្រើសរើស</option>
+         
+          <option> មិនចេះសោះ</option><option> ចេះតិចតួច </option><option>ចេះមធ្យម</option>
+          <option>ចេះច្រើន</option>
+        </select>
+        </div>
+        
+      <div class="form-group">
+        <label for="phone">លេខទូរសព្ទ</label>
+      <input type="tel" name="phone" id="phone" required />
+      </div>
+      </div>
+
+    
+
+    <div class="button-group">
+      <button type="button" id="clearBtn">Clear</button>
+      <button type="submit">Submit</button>
+    </div>
+
+    <div class="message" id="messageBox"></div>
+  </form>
+</div>
+
+<script>
+  function onlyOne(checkbox) {
+    const checkboxes = document.getElementsByName('sex');
+    checkboxes.forEach((cb) => {
+      if (cb !== checkbox) cb.checked = false;
+    });
+  }
+
+  const form = document.getElementById("signupForm");
+  const clearBtn = document.getElementById("clearBtn");
+  const messageBox = document.getElementById("messageBox");
+
+  const scriptURL = "https://script.google.com/macros/s/AKfycby0cOjoHubzMZ-oTUMVd0VDX6xHpSJDqat1kk9dv2gyzd5ejRuAZqOZaYt_aAcN2Ge_/exec"; // Replace with your Apps Script Web App URL
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    messageBox.textContent = "Submitting...";
+
+    const formData = new FormData(form);
+    const sexChecked = [...document.querySelectorAll('input[name="sex"]:checked')]
+      .map(input => input.value)
+      .join(", ");
+    formData.set("sex", sexChecked);
+
+    const params = new URLSearchParams(formData);
+
+    fetch(scriptURL, {
+      method: "POST",
+      body: params
+    })
+    .then(() => {
+      messageBox.textContent = "✅ Submitted successfully!";
+      form.reset();
+    })
+    .catch((error) => {
+      console.error("Error!", error.message);
+      messageBox.textContent = "❌ Submission failed.";
+    });
+  });
+
+  clearBtn.addEventListener("click", () => {
+    form.reset();
+    messageBox.textContent = "";
+  });
+</script>
+
+</body>
+</html>
